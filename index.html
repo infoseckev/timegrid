@@ -1,61 +1,66 @@
 <!DOCTYPE html>
 <head>
-  <meta http-equiv="refresh" content="120"/>
-  <title>Aeroport</title>
-  <link rel='stylesheet' href='styles.css' />
-  <script src="jquery.js"></script>
-  
-  <script>
-    //fonction jquery qui s'execute quand la page load
-     $(document).ready(function() {
+    <meta content="120" http-equiv="refresh"/>
+    <title>Aeroport</title>
+    <link href='styles.css' rel='stylesheet'/>
+    <script src="jquery.js"></script>
 
-       //requete au serveur python
-        $.ajax({url : 'http://localhost:8080/',
-          type: 'GET',
-          dataType: 'json',
-          crossDomain: true, 
-          success: function (data) {
-            $.each(data, function (index, value) {
+    <script>
+        //fonction jquery qui s'execute quand la page load
+        $(document).ready(function () {
 
-              //modification des dates
-              var date = value['time'];
-              date = new Date(date);
-              var arrivalTime = date.getHours() + ":" +(date.getMinutes()<10?'0':'') + date.getMinutes();
+            //requete au serveur python
+            $.ajax({
+                url: 'http://localhost:8080/',
+                type: 'GET',
+                dataType: 'json',
+                crossDomain: true,
+                success: function (data) {
 
-              //hack for alternating row colors
-              backgroundCss = '';
-              if(index % 2 > 0){
-                backgroundCss = 'lightBlue';
-              }
+                    //loop a travers le resultat que le serveur python a envoyé
+                    $.each(data, function (index, value) {
 
-              $(".container-fluid").append(' \
-                  <div class="table-row items ' + backgroundCss + '"> \
-                    <div class="text">' + value['destination'] + '</div> \
-                    <div class="text">' + value['carrier'] + '</div> \
-                    <div class="text">' + value['flight'] + '</div> \
-                    <div class="text">' + value['gate'] + '</div> \
-                    <div class="text">' + arrivalTime + '</div> \
-                  <div class="text on-time ' + value['class'] + '">' + value['status'] + '</div> \
-                </div>')
+                        //modification des dates
+                        var date = value['time'];
+                        date = new Date(date);
+                        var arrivalTime = date.getHours() + ":" + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
+
+                        //hack for alternating row colors
+                        backgroundCss = '';
+                        if (index % 2 > 0) {
+                            backgroundCss = 'lightBlue';
+                        }
+
+                        //construction des rangées
+                        //concatene le data dans une string et ensuite je le append au div qui a la classe container-fluid
+                        $(".container-fluid").append(' \
+                          <div class="table-row items ' + backgroundCss + '"> \
+                            <div class="text">' + value['destination'] + '</div> \
+                            <div class="text">' + value['carrier'] + '</div> \
+                            <div class="text">' + value['flight'] + '</div> \
+                            <div class="text">' + value['gate'] + '</div> \
+                            <div class="text">' + arrivalTime + '</div> \
+                            <div class="text ' + value['class'] + '">' + value['status'] + '</div> \
+                          </div>')
+                    });
+
+                }
             });
-
-          }
-      });
-     });
-  </script>
+        });
+    </script>
 </head>
 
 <body>
-  <div class="container-fluid">
+<div class="container-fluid">
     <div class="table-row title">Departures</div>
     <div class="table-row header">
-      <div class="text">Destination</div>
-      <div class="text">Carrier</div>
-      <div class="text">Flight</div>
-      <div class="text">Gate</div>
-      <div class="text">Time</div>
-      <div class="text">Status</div>
+        <div class="text">Destination</div>
+        <div class="text">Carrier</div>
+        <div class="text">Flight</div>
+        <div class="text">Gate</div>
+        <div class="text">Time</div>
+        <div class="text">Status</div>
     </div>
-  </div>
+</div>
 </body>
 </html>

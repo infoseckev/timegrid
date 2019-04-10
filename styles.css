@@ -1,35 +1,37 @@
 body {
-    margin:0px;
-    padding:0px;
+    margin: 0px;
+    padding: 0px;
     font-size: 20px;
     background-color: #BDB76B;
     overflow: hidden;
 }
+
 .text {
     width: 180px;
-    padding:10px;
+    padding: 10px;
 
 }
+
 .title {
     flex-direction: column;
     align-items: center;
     width: 100%;
     font-size: 44px;
 }
+
 .text, .title {
-    /*flex-grow: 1;*/
     overflow: hidden;
     white-space: nowrap;
-    /*text-overflow: ellipsis;*/
 
 }
+
 .table-row {
     display: flex;
     flex-direction: row;
     flex-grow: 0;
     width: 100%;
     border-collapse: collapse;
-    background-color:#0000FF;
+    background-color: #0000FF;
 }
 
 .table-row.header {
@@ -38,6 +40,7 @@ body {
     padding-bottom: 8px;
     background-color: #87CEFA;
 }
+
 .table-row.title {
     background-color: #87CEFA;
 }
@@ -45,15 +48,19 @@ body {
 .table-row.text {
     background-color: red;
 }
+
 .red {
     background-color: red;
 }
+
 .green {
     background-color: green;
 }
+
 .yellow {
     background-color: yellow;
 }
+
 .lightBlue {
     background-color: #87CEFA;
 }
