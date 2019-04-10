@@ -3,6 +3,7 @@ body {
     padding:0px;
     font-size: 20px;
     background-color: #BDB76B;
+    overflow: hidden;
 }
 .text {
     width: 180px;
