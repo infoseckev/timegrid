@@ -6,14 +6,6 @@ Ceci est une application qui simule l'écran d'arrivés et départs d'une aérop
 
 Il faut un environnement python3.
 
-### pré-requis
-
-Python3
-
-```
-Give examples
-```
-
 ### Installation
 
 Il faut runner le fichier server.py en premier. Par la suite simplement ouvrir le fichier .html et toute devrait fonctionner.
