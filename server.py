@@ -9,6 +9,8 @@ def simple_app(environ, start_response):
     setup_testing_defaults(environ)
 
     headers = [('content-type', 'application/json')]
+
+    #faire dequoi ici pour sécuriser l'application et ne pas permettre CORS
     headers.extend([
         ("Access-Control-Allow-Origin", "*"),
         ("Access-Control-Allow-Credentials", "true"),
@@ -37,6 +39,8 @@ def getFlightInfo(numberOfFlights) :
         gate = random.randint(1, 25)
         arrivalTime = str(datetime.datetime.now() + datetime.timedelta(minutes=minuteTillArrival[x]))
         htmlClass = "blue"
+
+        # il ne faudrait pas changer ceci a Cancelled...
         status = random.choice(statusList)
         if(status == "Delayed"):
             htmlClass = "yellow"
