@@ -33,7 +33,9 @@ body {
     border-collapse: collapse;
     background-color: #0000FF;
 }
-
+.table-row.items:nth-child(even){
+    background-color: #87CEFA;
+}
 .table-row.header {
     font-weight: bold;
     padding-top: 8px;
@@ -42,25 +44,5 @@ body {
 }
 
 .table-row.title {
-    background-color: #87CEFA;
-}
-
-.table-row.text {
-    background-color: red;
-}
-
-.red {
-    background-color: red;
-}
-
-.green {
-    background-color: green;
-}
-
-.yellow {
-    background-color: yellow;
-}
-
-.lightBlue {
     background-color: #87CEFA;
 }

@@ -26,13 +26,12 @@ def simple_app(environ, start_response):
     return [test1]
 
 def getFlightInfo(numberOfFlights) :
-    destinations = ['Montréal', 'Vancouver', 'Ottawa', 'Halifax', 'Toronto','Edmonton', 'Québec', 'Calgary']
-    carriers = ['Air Canada', 'WestJet', 'Porter Airlines']
+    destinations = ['Montréal', 'Vancouver', 'Ottawa', 'Halifax', 'Toronto','Edmonton', 'Québec', 'Calgary', 'Charlottetown', 'St-John\'s', 'Paris', 'Amsterdam']
+    carriers = ['Air Canada', 'WestJet', 'Air Transat', 'Wow Air', 'Cyber Sécurit-Air',  'Porter Airlines']
     #on ajoute de l'importance sur les "On Time" par un multiple de 7
     statusList = ['On Time'] * 7 + ['Delayed'] * 2 + ['Cancelled'] * 1
     flightInfo = []
-    minuteTillArrival = random.sample(range(3, 400), numberOfFlights)
-    minuteTillArrival = sorted(minuteTillArrival)
+    minuteTillArrival = sorted(random.sample(range(3, 400), numberOfFlights))
 
     for x in range(numberOfFlights):
         flightNumber = random.randint(1000, 1999)
