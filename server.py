@@ -37,23 +37,17 @@ def getFlightInfo(numberOfFlights) :
     for x in range(numberOfFlights):
         flightNumber = random.randint(1000, 1999)
         gate = random.randint(1, 25)
-        arrivalTime = str(datetime.datetime.now() + datetime.timedelta(minutes=minuteTillArrival[x]))
-        htmlClass = "blue"
+        arrivalTime = str((datetime.datetime.now() + datetime.timedelta(minutes=minuteTillArrival[x])).strftime("%H:%M"))
 
         # il ne faudrait pas changer ceci a Cancelled...
         status = random.choice(statusList)
-        if(status == "Delayed"):
-            htmlClass = "yellow"
-        elif(status == "Cancelled"):
-            htmlClass = "red"
 
         flightInfo.append({'destination': random.choice(destinations),
                            'carrier': random.choice(carriers),
                            'flight': flightNumber,
                            'gate': gate,
                            'time': arrivalTime,
-                           'status': status,
-                           'class': htmlClass
+                           'status': status
                            })
 
     return flightInfo
